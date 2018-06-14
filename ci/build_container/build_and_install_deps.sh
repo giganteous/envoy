@@ -10,6 +10,8 @@ if [ -z "$NUM_CPUS" ]; then
   case `uname` in
       Darwin)
           NUM_CPUS=`sysctl hw.physicalcpu | cut -f 2 -d' '`;;
+      FreeBSD)
+          NUM_CPUS=`sysctl hw.ncpu | cut -f 2 -d' '`;;
       *)
           NUM_CPUS=`grep -c ^processor /proc/cpuinfo`;;
   esac
