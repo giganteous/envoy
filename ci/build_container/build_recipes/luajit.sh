@@ -74,5 +74,5 @@ else
   # ld: library not found for -lgcc_s.10.4
   # This doesn't affect other platforms
   MACOSX_DEPLOYMENT_TARGET=10.6 DEFAULT_CC=${CC} TARGET_CFLAGS=${CFLAGS} TARGET_LDFLAGS=${CFLAGS} \
-    CFLAGS="" make V=1 PREFIX="$THIRDPARTY_BUILD" install
+    CFLAGS="" gmake V=1 PREFIX="$THIRDPARTY_BUILD" install
 fi

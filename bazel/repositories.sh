@@ -2,12 +2,13 @@
 
 set -e
 
-if [[ `uname` == "Darwin" ]]
-then
-  function md5sum {
-    md5
-  }
-fi
+case `uname` in
+  FreeBSD|Darwin)
+    function md5sum {
+      md5
+    }
+  ;;
+esac
 
 # Tell build_and_install_deps.sh to build sequentially when performance debugging.
 # export BUILD_CONCURRENCY=0

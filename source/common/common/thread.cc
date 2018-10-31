@@ -2,7 +2,7 @@
 
 #ifdef __linux__
 #include <sys/syscall.h>
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__FreeBSD__)
 #include <pthread.h>
 #endif
 
@@ -28,7 +28,7 @@ Thread::Thread(std::function<void()> thread_routine) : thread_routine_(thread_ro
 int32_t Thread::currentThreadId() {
 #ifdef __linux__
   return syscall(SYS_gettid);
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__FreeBSD__)
   uint64_t tid;
   pthread_threadid_np(NULL, &tid);
   return static_cast<int32_t>(tid);

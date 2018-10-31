@@ -14,5 +14,5 @@ curl https://github.com/gperftools/gperftools/releases/download/gperftools-"$VER
 tar xf gperftools-"$VERSION".tar.gz
 cd gperftools-"$VERSION"
 
-LDFLAGS="-lpthread" ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --enable-frame-pointers --disable-libunwind
-make V=1 install
+LIBS="-lexecinfo" LDFLAGS="-lpthread" ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --enable-frame-pointers --disable-libunwind
+gmake V=1 install
