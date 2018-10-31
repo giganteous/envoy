@@ -2,7 +2,10 @@
 
 #ifdef __linux__
 #include <sys/syscall.h>
-#elif defined(__APPLE__) || defined(__FreeBSD__)
+#elif defined(__FreeBSD__)
+#include <pthread.h>
+#include <pthread_np.h>
+#elif defined(__APPLE__)
 #include <pthread.h>
 #endif
 
