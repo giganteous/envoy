@@ -7,6 +7,9 @@ case `uname` in
     function md5sum {
       md5
     }
+    function sha256sum {
+      sha256
+    }
   ;;
 esac
 

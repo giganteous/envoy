@@ -23,8 +23,8 @@ if [[ "${BUILD_CONCURRENCY}" == "0" ]]
 then
   for dep in "$@"
   do
-    make -C "$(dirname "$0")" -j "${NUM_CPUS}" "$dep"
+    gmake -C "$(dirname "$0")" -j "${NUM_CPUS}" "$dep"
   done
 else
-  make -C "$(dirname "$0")" -j "${NUM_CPUS}" "$@"
+  gmake -C "$(dirname "$0")" -j "${NUM_CPUS}" "$@"
 fi
