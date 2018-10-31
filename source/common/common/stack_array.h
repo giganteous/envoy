@@ -1,6 +1,8 @@
 #pragma once
 
-#if !defined(WIN32)
+#if defined(__FreeBSD__)
+// nothing
+#elif !defined(WIN32)
 #include <alloca.h>
 
 #else
