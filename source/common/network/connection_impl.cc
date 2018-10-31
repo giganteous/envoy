@@ -220,7 +220,7 @@ void ConnectionImpl::noDelay(bool enable) {
   // Set NODELAY
   int new_value = enable;
   rc = setsockopt(fd(), IPPROTO_TCP, TCP_NODELAY, &new_value, sizeof(new_value));
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__FreeBSD__)
   if (-1 == rc && errno == EINVAL) {
     // Sometimes occurs when the connection is not yet fully formed. Empirically, TCP_NODELAY is
     // enabled despite this result.
