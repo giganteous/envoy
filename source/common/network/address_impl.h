@@ -1,8 +1,11 @@
 #pragma once
 
+#if defined(__FreeBSD__)
+#include <netinet/in.h>
+#endif
+#include <sys/types.h>
 #include <netinet/ip.h>
 #include <sys/socket.h>
-#include <sys/types.h>
 #include <sys/un.h>
 
 #include <array>
