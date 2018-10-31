@@ -12,6 +12,13 @@ SHA256=6cdb97871f2930530c97deb7cf5c8fa4be5a0b02c7cea6e7c7667672a39d6852
 CPPFLAGS="$(for f in $CXXFLAGS; do if [[ $f =~ -D.* ]]; then echo $f; fi; done | tr '\n' ' ')"
 CFLAGS="$(for f in $CXXFLAGS; do if [[ ! $f =~ -D.* ]]; then echo $f; fi; done | tr '\n' ' ')"
 
+case `uname` in
+  FreeBSD)
+    function sha256sum {
+      sha256
+    }
+  ;;
+esac
 curl https://github.com/c-ares/c-ares/releases/download/"$TAG"/"$VERSION".tar.gz -sLo "$VERSION".tar.gz \
   && echo "$SHA256" "$VERSION".tar.gz | sha256sum --check
 tar xf "$VERSION".tar.gz
