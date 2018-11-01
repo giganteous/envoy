@@ -46,6 +46,11 @@ config_setting(
 )
 
 config_setting(
+    name = "freebsd",
+    values = { "cpu": "freebsd" },
+)
+
+config_setting(
     name = "windows_opt_build",
     values = {
         "cpu": "x64_windows",

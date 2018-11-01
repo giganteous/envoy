@@ -28,12 +28,18 @@ envoy_cc_library(
         "@bazel_tools//tools/osx:darwin": [
             "kqueue/watcher_impl.cc",
         ],
+        "@envoy//bazel:freebsd": [
+            "kqueue/watcher_impl.cc",
+        ],
         "//conditions:default": [
             "inotify/watcher_impl.cc",
         ],
     }),
     hdrs = select({
         "@bazel_tools//tools/osx:darwin": [
+            "kqueue/watcher_impl.h",
+        ],
+        "@envoy//bazel:freebsd": [
             "kqueue/watcher_impl.h",
         ],
         "//conditions:default": [
@@ -45,6 +51,7 @@ envoy_cc_library(
     ],
     strip_include_prefix = select({
         "@bazel_tools//tools/osx:darwin": "kqueue",
+        "@envoy//bazel:freebsd": "kqueue",
         "//conditions:default": "inotify",
     }),
     deps = [
