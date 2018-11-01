@@ -42,7 +42,11 @@ void WatcherImpl::addWatch(const std::string& path, uint32_t events, Watcher::On
 WatcherImpl::FileWatchPtr WatcherImpl::addWatch(const std::string& path, uint32_t events,
                                                 Watcher::OnChangedCb cb, bool path_must_exist) {
   bool watching_dir = false;
+#ifdef __FreeBSD__
+  int watch_fd = open(path.c_str(), O_RDONLY);
+#else
   int watch_fd = open(path.c_str(), O_SYMLINK);
+#endif
   if (watch_fd == -1) {
     if (path_must_exist) {
       return nullptr;
