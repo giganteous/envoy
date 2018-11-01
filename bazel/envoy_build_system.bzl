@@ -455,6 +455,7 @@ def envoy_select_hot_restart(xs, repository = ""):
     return select({
         repository + "//bazel:disable_hot_restart": [],
         "@bazel_tools//tools/osx:darwin": [],
+        "@envoy//bazel:freebsd": [],
         "//conditions:default": xs,
     })
 
@@ -482,6 +483,7 @@ def envoy_select_force_libcpp(if_libcpp, default = None):
     return select({
         "@envoy//bazel:force_libcpp": if_libcpp,
         "@bazel_tools//tools/osx:darwin": [],
+        "@envoy//bazel:freebsd": [],
         "@envoy//bazel:windows_x86_64": [],
         "//conditions:default": default or [],
     })
