@@ -5,6 +5,8 @@
 
 #if defined(__linux__)
 #include <linux/netfilter_ipv4.h>
+#elif defined(__FreeBSD__)
+#include <netinet/in.h>
 #endif
 
 #ifndef IP6T_SO_ORIGINAL_DST
