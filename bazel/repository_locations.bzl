@@ -23,9 +23,9 @@ REPOSITORY_LOCATIONS = dict(
     ),
     com_github_bombela_backward = dict(
         # Use commits from branch "freebsd-support"
-        sha256 = "01955ece44b57f2d5feca72b5043a2442251e3067827b80c542e26b3cd6892b6",
-        strip_prefix = "backward-cpp-760b1ff04f9eda16b1faf2130ca1cf9b0c8dcca0",
-        urls = ["https://github.com/giganteous/backward-cpp/archive/760b1ff04f9eda16b1faf2130ca1cf9b0c8dcca0.tar.gz"],
+        sha256 = "66ca6b8dfe9ec8fb2aaa5fad4a95731cf9b1c8b0f9c3774bb88bd57dd80d67c5",
+        strip_prefix = "backward-cpp-e84486df30ba86c0423249d10d10d16bf7c48beb",
+        urls = ["https://github.com/giganteous/backward-cpp/archive/e84486df30ba86c0423249d10d10d16bf7c48beb.tar.gz"],
     ),
     com_github_circonus_labs_libcircllhist = dict(
         sha256 = "9949e2864b8ad00ee5c3e9c1c3c01e51b6b68bb442a919652fc66b9776477987",
